@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - Bank Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h2>SecureBank</h2>
+                </div>
+                <nav class="nav" id="nav">
+                    <button class="btn btn--secondary btn--sm" id="logoutBtn" onclick="logout()">Logout</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        
+        <!-- Landing Page -->
+        <section class="page" id="landingPage">
+            <div class="container">
+                <div class="landing-hero">
+                    <h1>Welcome to SecureBank</h1>
+                    <p>Your trusted partner for secure and convenient banking</p>
+                    <div class="landing-actions">
+                        <button class="btn btn--primary btn--lg" onclick="showPage('createAccountPage')">Create Account</button>
+                        <button class="btn btn--outline btn--lg" onclick="showPage('loginPage')">Login</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Account Page -->
+        <section class="page hidden" id="createAccountPage">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Create New Account</h2>
+                    <button class="btn btn--secondary" onclick="showPage('landingPage')">Back</button>
+                </div>
+                <div class="form-container">
+                    <form id="createAccountForm" class="account-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <textarea class="form-control" id="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Account Type</label>
+                                <select class="form-control" id="accountType" required>
+                                    <option value="">Select Account Type</option>
+                                    <option value="Checking">Checking</option>
+                                    <option value="Savings">Savings</option>
+                                    <option value="Business">Business</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Initial Deposit</label>
+                                <input type="number" class="form-control" id="initialDeposit" min="100" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Create PIN (4 digits)</label>
+                            <input type="password" class="form-control" id="pin" pattern="[0-9]{4}" maxlength="4" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Page -->
+        <section class="page hidden" id="loginPage">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Login to Your Account</h2>
+                    <button class="btn btn--secondary" onclick="showPage('landingPage')">Back</button>
+                </div>
+                <div class="login-container">
+                    <form id="loginForm" class="login-form">
+                        <div class="form-group">
+                            <label class="form-label">Account Number</label>
+                            <input type="text" class="form-control" id="loginAccountNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">PIN</label>
+                            <input type="password" class="form-control" id="loginPin" maxlength="4" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="page hidden" id="dashboardPage">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Account Dashboard</h2>
+                    <p class="welcome-text" id="welcomeText"></p>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="balance-card">
+                        <h3>Account Balance</h3>
+                        <div class="balance-amount" id="balanceAmount">$0.00</div>
+                        <div class="account-info">
+                            <p>Account: <span id="dashboardAccountNumber"></span></p>
+                            <p>Type: <span id="dashboardAccountType"></span></p>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn btn--primary" onclick="showPage('depositPage')">Deposit</button>
+                            <button class="btn btn--primary" onclick="showPage('withdrawPage')">Withdraw</button>
+                            <button class="btn btn--primary" onclick="showPage('transferPage')">Transfer</button>
+                            <button class="btn btn--outline" onclick="showPage('historyPage')">Transaction History</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deposit Page -->
+        <section class="page hidden" id="depositPage">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Deposit Money</h2>
+                    <button class="btn btn--secondary" onclick="showPage('dashboardPage')">Back to Dashboard</button>
+                </div>
+                <div class="transaction-container">
+                    <form id="depositForm" class="transaction-form">
+                        <div class="form-group">
+                            <label class="form-label">Amount to Deposit</label>
+                            <input type="number" class="form-control" id="depositAmount" min="0.01" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description (Optional)</label>
+                            <input type="text" class="form-control" id="depositDescription" placeholder="Enter description">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Deposit Money</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Withdraw Page -->
+        <section class="page hidden" id="withdrawPage">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Withdraw Money</h2>
+                    <button class="btn btn--secondary" onclick="showPage('dashboardPage')">Back to Dashboard</button>
+                </div>
+                <div class="transaction-container">
+                    <form id="withdrawForm" class="transaction-form">
+                        <div class="form-group">
+                            <label class="form-label">Amount to Withdraw</label>
+                            <input type="number" class="form-control" id="withdrawAmount" min="0.01" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description (Optional)</label>
+                            <input type="text" class="form-control" id="withdrawDescription" placeholder="Enter description">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Withdraw Money</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transfer Page -->
+        <section class="page hidden" id="transferPage">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Transfer Money</h2>
+                    <button class="btn btn--secondary" onclick="showPage('dashboardPage')">Back to Dashboard</button>
+                </div>
+                <div class="transaction-container">
+                    <form id="transferForm" class="transaction-form">
+                        <div class="form-group">
+                            <label class="form-label">Recipient Account Number</label>
+                            <input type="text" class="form-control" id="transferToAccount" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Amount to Transfer</label>
+                            <input type="number" class="form-control" id="transferAmount" min="0.01" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description (Optional)</label>
+                            <input type="text" class="form-control" id="transferDescription" placeholder="Enter description">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Transfer Money</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transaction History Page -->
+        <section class="page hidden" id="historyPage">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Transaction History</h2>
+                    <button class="btn btn--secondary" onclick="showPage('dashboardPage')">Back to Dashboard</button>
+                </div>
+                <div class="history-container">
+                    <div class="history-filters">
+                        <select class="form-control filter-select" id="transactionFilter">
+                            <option value="all">All Transactions</option>
+                            <option value="deposit">Deposits</option>
+                            <option value="withdraw">Withdrawals</option>
+                            <option value="transfer">Transfers</option>
+                        </select>
+                    </div>
+                    <div class="transaction-table">
+                        <table id="transactionTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Success/Error Messages -->
+    <div class="message-container" id="messageContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

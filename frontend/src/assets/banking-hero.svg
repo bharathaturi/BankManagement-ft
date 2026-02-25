@@ -1,0 +1,39 @@
+<svg width="760" height="520" viewBox="0 0 760 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="40" x2="700" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2A52"/>
+      <stop offset="1" stop-color="#168AAD"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="380" y1="130" x2="380" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7F5FF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.86"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="380" y1="80" x2="380" y2="155" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD166"/>
+      <stop offset="1" stop-color="#F4A300"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="20" y="20" width="720" height="480" rx="30" fill="url(#bg)"/>
+  <circle cx="115" cy="115" r="70" fill="#FFFFFF" fill-opacity="0.08"/>
+  <circle cx="660" cy="425" r="95" fill="#FFFFFF" fill-opacity="0.08"/>
+
+  <path d="M165 165L380 75L595 165V185H165V165Z" fill="url(#roof)"/>
+  <path d="M185 200H575V420H185V200Z" fill="url(#glass)"/>
+  <rect x="215" y="230" width="55" height="150" rx="9" fill="#0A2A52" fill-opacity="0.78"/>
+  <rect x="295" y="230" width="55" height="150" rx="9" fill="#0A2A52" fill-opacity="0.78"/>
+  <rect x="375" y="230" width="55" height="150" rx="9" fill="#0A2A52" fill-opacity="0.78"/>
+  <rect x="455" y="230" width="55" height="150" rx="9" fill="#0A2A52" fill-opacity="0.78"/>
+  <rect x="170" y="420" width="420" height="20" rx="8" fill="#06203E"/>
+  <path d="M380 123C398.778 123 414 138.222 414 157H346C346 138.222 361.222 123 380 123Z" fill="#06203E"/>
+
+  <rect x="120" y="305" width="115" height="70" rx="14" fill="#FFFFFF" fill-opacity="0.15"/>
+  <rect x="132" y="320" width="52" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.75"/>
+  <rect x="132" y="340" width="86" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.42"/>
+  <circle cx="211" cy="325" r="11" fill="#FFD166"/>
+
+  <rect x="520" y="100" width="130" height="82" rx="16" fill="#FFFFFF" fill-opacity="0.15"/>
+  <rect x="534" y="120" width="58" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.75"/>
+  <rect x="534" y="139" width="96" height="9" rx="4.5" fill="#FFFFFF" fill-opacity="0.42"/>
+  <path d="M606 133L617 145L640 121" stroke="#FFD166" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

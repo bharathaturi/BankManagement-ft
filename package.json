@@ -1,0 +1,10 @@
+{
+  "name": "bank-frontend-root",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix frontend start",
+    "dev": "npm --prefix frontend start",
+    "build": "npm --prefix frontend build",
+    "test": "npm --prefix frontend test"
+  }
+}

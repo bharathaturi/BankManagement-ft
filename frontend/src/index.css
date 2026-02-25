@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+  --bank-navy: #06203e;
+  --bank-ocean: #0f4c81;
+  --bank-sky: #168aad;
+  --bank-surface: #f3f8ff;
+  --bank-text: #10263f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
+  color: var(--bank-text);
+  background-color: var(--bank-surface);
+  background-image:
+    linear-gradient(130deg, rgba(15, 76, 129, 0.06), rgba(15, 76, 129, 0)),
+    radial-gradient(circle at 82% 12%, rgba(22, 138, 173, 0.14) 0, rgba(22, 138, 173, 0) 34%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', 'Manrope', sans-serif;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+}
