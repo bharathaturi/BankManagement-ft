@@ -182,7 +182,7 @@ const CreateAccount = () => {
         initialDeposit: Number(formData.initialDeposit) || 0
       };
 
-      const response = await axios.post(`${API_BASE_URL}/accounts/register-and-create`, payload);
+      const response = await axios.post(`${API_BASE_URL}/accounts/init-setup`, payload);
       setSuccess(response.data);
     } catch (err) {
       setError(err.response?.data?.error || err.message || 'Registration failed. Please try again.');
