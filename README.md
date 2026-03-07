@@ -4,8 +4,8 @@
 A comprehensive full-stack web application that allows users to seamlessly manage their banking activities. The platform provides a secure and intuitive interface for comprehensive account creation with KYC verification, profile management, investment tracking, loan EMI payments, and managing service subscriptions. 
 
 ## Live Demo
-- **Frontend App:** https://bank-management-ft-chw2.vercel.app/
-- **Backend API Server:** https://bankmanagement-bk.onrender.com
+- **Frontend App:** [https://bank-management-ft-chw2.vercel.app/](https://bank-management-ft-chw2.vercel.app/)
+- **Backend API Server:** [https://bankmanagement-bk.onrender.com](https://bankmanagement-bk.onrender.com)
 
 ## Features
 - Secure User Authentication and Authorization
